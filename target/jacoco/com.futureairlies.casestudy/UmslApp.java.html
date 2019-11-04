@@ -23,13 +23,13 @@ import java.util.Collection;
 @EnableConfigurationProperties({ApplicationProperties.class})
 public class UmslApp implements InitializingBean {
 
-<span class="nc" id="L26">    private static final Logger log = LoggerFactory.getLogger(UmslApp.class);</span>
+<span class="fc" id="L26">    private static final Logger log = LoggerFactory.getLogger(UmslApp.class);</span>
 
     private final Environment env;
 
-<span class="nc" id="L30">    public UmslApp(Environment env) {</span>
-<span class="nc" id="L31">        this.env = env;</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L30">    public UmslApp(Environment env) {</span>
+<span class="fc" id="L31">        this.env = env;</span>
+<span class="fc" id="L32">    }</span>
 
     /**
      * Initializes UMSL.
@@ -40,16 +40,16 @@ public class UmslApp implements InitializingBean {
      */
     @Override
     public void afterPropertiesSet() throws Exception {
-<span class="nc" id="L43">        Collection&lt;String&gt; activeProfiles = Arrays.asList(env.getActiveProfiles());</span>
-<span class="nc bnc" id="L44" title="All 4 branches missed.">        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) &amp;&amp; activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {</span>
+<span class="fc" id="L43">        Collection&lt;String&gt; activeProfiles = Arrays.asList(env.getActiveProfiles());</span>
+<span class="pc bpc" id="L44" title="3 of 4 branches missed.">        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) &amp;&amp; activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {</span>
 <span class="nc" id="L45">            log.error(&quot;You have misconfigured your application! It should not run &quot; +</span>
                 &quot;with both the 'dev' and 'prod' profiles at the same time.&quot;);
         }
-<span class="nc bnc" id="L48" title="All 4 branches missed.">        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) &amp;&amp; activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_CLOUD)) {</span>
+<span class="pc bpc" id="L48" title="3 of 4 branches missed.">        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) &amp;&amp; activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_CLOUD)) {</span>
 <span class="nc" id="L49">            log.error(&quot;You have misconfigured your application! It should not &quot; +</span>
                 &quot;run with both the 'dev' and 'cloud' profiles at the same time.&quot;);
         }
-<span class="nc" id="L52">    }</span>
+<span class="fc" id="L52">    }</span>
 
     /**
      * Main method, used to run the application.

@@ -10,7 +10,7 @@ import org.zalando.problem.ProblemModule;
 import org.zalando.problem.violations.ConstraintViolationProblemModule;
 
 @Configuration
-<span class="nc" id="L13">public class JacksonConfiguration {</span>
+<span class="fc" id="L13">public class JacksonConfiguration {</span>
 
     /**
      * Support for Java date and time API.
@@ -18,12 +18,12 @@ import org.zalando.problem.violations.ConstraintViolationProblemModule;
      */
     @Bean
     public JavaTimeModule javaTimeModule() {
-<span class="nc" id="L21">        return new JavaTimeModule();</span>
+<span class="fc" id="L21">        return new JavaTimeModule();</span>
     }
 
     @Bean
     public Jdk8Module jdk8TimeModule() {
-<span class="nc" id="L26">        return new Jdk8Module();</span>
+<span class="fc" id="L26">        return new Jdk8Module();</span>
     }
 
     /*
@@ -31,7 +31,7 @@ import org.zalando.problem.violations.ConstraintViolationProblemModule;
      */
     @Bean
     public AfterburnerModule afterburnerModule() {
-<span class="nc" id="L34">        return new AfterburnerModule();</span>
+<span class="fc" id="L34">        return new AfterburnerModule();</span>
     }
 
     /*
@@ -39,7 +39,7 @@ import org.zalando.problem.violations.ConstraintViolationProblemModule;
      */
     @Bean
     ProblemModule problemModule() {
-<span class="nc" id="L42">        return new ProblemModule();</span>
+<span class="fc" id="L42">        return new ProblemModule();</span>
     }
 
     /*
@@ -47,7 +47,7 @@ import org.zalando.problem.violations.ConstraintViolationProblemModule;
      */
     @Bean
     ConstraintViolationProblemModule constraintViolationProblemModule() {
-<span class="nc" id="L50">        return new ConstraintViolationProblemModule();</span>
+<span class="fc" id="L50">        return new ConstraintViolationProblemModule();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

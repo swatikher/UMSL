@@ -9,20 +9,20 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
-<span class="nc" id="L12">public class LocaleConfiguration implements WebMvcConfigurer {</span>
+<span class="fc" id="L12">public class LocaleConfiguration implements WebMvcConfigurer {</span>
 
     @Bean(name = &quot;localeResolver&quot;)
     public LocaleResolver localeResolver() {
-<span class="nc" id="L16">        AngularCookieLocaleResolver cookieLocaleResolver = new AngularCookieLocaleResolver();</span>
-<span class="nc" id="L17">        cookieLocaleResolver.setCookieName(&quot;NG_TRANSLATE_LANG_KEY&quot;);</span>
-<span class="nc" id="L18">        return cookieLocaleResolver;</span>
+<span class="fc" id="L16">        AngularCookieLocaleResolver cookieLocaleResolver = new AngularCookieLocaleResolver();</span>
+<span class="fc" id="L17">        cookieLocaleResolver.setCookieName(&quot;NG_TRANSLATE_LANG_KEY&quot;);</span>
+<span class="fc" id="L18">        return cookieLocaleResolver;</span>
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-<span class="nc" id="L23">        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();</span>
-<span class="nc" id="L24">        localeChangeInterceptor.setParamName(&quot;language&quot;);</span>
-<span class="nc" id="L25">        registry.addInterceptor(localeChangeInterceptor);</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L23">        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();</span>
+<span class="fc" id="L24">        localeChangeInterceptor.setParamName(&quot;language&quot;);</span>
+<span class="fc" id="L25">        registry.addInterceptor(localeChangeInterceptor);</span>
+<span class="fc" id="L26">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

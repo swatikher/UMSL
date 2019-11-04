@@ -20,14 +20,14 @@ public final class SecurityUtils {
      * @return the login of the current user.
      */
     public static Optional&lt;String&gt; getCurrentUserLogin() {
-<span class="fc" id="L23">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
-<span class="fc" id="L24">        return Optional.ofNullable(securityContext.getAuthentication())</span>
-<span class="fc" id="L25">            .map(authentication -&gt; {</span>
-<span class="pc bpc" id="L26" title="1 of 2 branches missed.">                if (authentication.getPrincipal() instanceof UserDetails) {</span>
+<span class="nc" id="L23">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
+<span class="nc" id="L24">        return Optional.ofNullable(securityContext.getAuthentication())</span>
+<span class="nc" id="L25">            .map(authentication -&gt; {</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                if (authentication.getPrincipal() instanceof UserDetails) {</span>
 <span class="nc" id="L27">                    UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();</span>
 <span class="nc" id="L28">                    return springSecurityUser.getUsername();</span>
-<span class="pc bpc" id="L29" title="1 of 2 branches missed.">                } else if (authentication.getPrincipal() instanceof String) {</span>
-<span class="fc" id="L30">                    return (String) authentication.getPrincipal();</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">                } else if (authentication.getPrincipal() instanceof String) {</span>
+<span class="nc" id="L30">                    return (String) authentication.getPrincipal();</span>
                 }
 <span class="nc" id="L32">                return null;</span>
             });
@@ -39,10 +39,10 @@ public final class SecurityUtils {
      * @return the JWT of the current user.
      */
     public static Optional&lt;String&gt; getCurrentUserJWT() {
-<span class="fc" id="L42">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
-<span class="fc" id="L43">        return Optional.ofNullable(securityContext.getAuthentication())</span>
-<span class="fc" id="L44">            .filter(authentication -&gt; authentication.getCredentials() instanceof String)</span>
-<span class="fc" id="L45">            .map(authentication -&gt; (String) authentication.getCredentials());</span>
+<span class="nc" id="L42">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
+<span class="nc" id="L43">        return Optional.ofNullable(securityContext.getAuthentication())</span>
+<span class="nc" id="L44">            .filter(authentication -&gt; authentication.getCredentials() instanceof String)</span>
+<span class="nc" id="L45">            .map(authentication -&gt; (String) authentication.getCredentials());</span>
     }
 
     /**
@@ -51,11 +51,11 @@ public final class SecurityUtils {
      * @return true if the user is authenticated, false otherwise.
      */
     public static boolean isAuthenticated() {
-<span class="fc" id="L54">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
-<span class="fc" id="L55">        return Optional.ofNullable(securityContext.getAuthentication())</span>
-<span class="fc" id="L56">            .map(authentication -&gt; authentication.getAuthorities().stream()</span>
-<span class="fc" id="L57">                .noneMatch(grantedAuthority -&gt; grantedAuthority.getAuthority().equals(AuthoritiesConstants.ANONYMOUS)))</span>
-<span class="fc" id="L58">            .orElse(false);</span>
+<span class="nc" id="L54">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
+<span class="nc" id="L55">        return Optional.ofNullable(securityContext.getAuthentication())</span>
+<span class="nc" id="L56">            .map(authentication -&gt; authentication.getAuthorities().stream()</span>
+<span class="nc" id="L57">                .noneMatch(grantedAuthority -&gt; grantedAuthority.getAuthority().equals(AuthoritiesConstants.ANONYMOUS)))</span>
+<span class="nc" id="L58">            .orElse(false);</span>
     }
 
     /**
@@ -67,11 +67,11 @@ public final class SecurityUtils {
      * @return true if the current user has the authority, false otherwise.
      */
     public static boolean isCurrentUserInRole(String authority) {
-<span class="fc" id="L70">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
-<span class="fc" id="L71">        return Optional.ofNullable(securityContext.getAuthentication())</span>
-<span class="fc" id="L72">            .map(authentication -&gt; authentication.getAuthorities().stream()</span>
-<span class="fc" id="L73">                .anyMatch(grantedAuthority -&gt; grantedAuthority.getAuthority().equals(authority)))</span>
-<span class="fc" id="L74">            .orElse(false);</span>
+<span class="nc" id="L70">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
+<span class="nc" id="L71">        return Optional.ofNullable(securityContext.getAuthentication())</span>
+<span class="nc" id="L72">            .map(authentication -&gt; authentication.getAuthorities().stream()</span>
+<span class="nc" id="L73">                .anyMatch(grantedAuthority -&gt; grantedAuthority.getAuthority().equals(authority)))</span>
+<span class="nc" id="L74">            .orElse(false);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -29,21 +29,21 @@ public class JWTFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
         throws IOException, ServletException {
-<span class="fc" id="L32">        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;</span>
-<span class="fc" id="L33">        String jwt = resolveToken(httpServletRequest);</span>
-<span class="fc bfc" id="L34" title="All 4 branches covered.">        if (StringUtils.hasText(jwt) &amp;&amp; this.tokenProvider.validateToken(jwt)) {</span>
-<span class="fc" id="L35">            Authentication authentication = this.tokenProvider.getAuthentication(jwt);</span>
-<span class="fc" id="L36">            SecurityContextHolder.getContext().setAuthentication(authentication);</span>
+<span class="nc" id="L32">        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;</span>
+<span class="nc" id="L33">        String jwt = resolveToken(httpServletRequest);</span>
+<span class="nc bnc" id="L34" title="All 4 branches missed.">        if (StringUtils.hasText(jwt) &amp;&amp; this.tokenProvider.validateToken(jwt)) {</span>
+<span class="nc" id="L35">            Authentication authentication = this.tokenProvider.getAuthentication(jwt);</span>
+<span class="nc" id="L36">            SecurityContextHolder.getContext().setAuthentication(authentication);</span>
         }
-<span class="fc" id="L38">        filterChain.doFilter(servletRequest, servletResponse);</span>
-<span class="fc" id="L39">    }</span>
+<span class="nc" id="L38">        filterChain.doFilter(servletRequest, servletResponse);</span>
+<span class="nc" id="L39">    }</span>
 
     private String resolveToken(HttpServletRequest request){
-<span class="fc" id="L42">        String bearerToken = request.getHeader(AUTHORIZATION_HEADER);</span>
-<span class="fc bfc" id="L43" title="All 4 branches covered.">        if (StringUtils.hasText(bearerToken) &amp;&amp; bearerToken.startsWith(&quot;Bearer &quot;)) {</span>
-<span class="fc" id="L44">            return bearerToken.substring(7);</span>
+<span class="nc" id="L42">        String bearerToken = request.getHeader(AUTHORIZATION_HEADER);</span>
+<span class="nc bnc" id="L43" title="All 4 branches missed.">        if (StringUtils.hasText(bearerToken) &amp;&amp; bearerToken.startsWith(&quot;Bearer &quot;)) {</span>
+<span class="nc" id="L44">            return bearerToken.substring(7);</span>
         }
-<span class="fc" id="L46">        return null;</span>
+<span class="nc" id="L46">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

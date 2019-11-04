@@ -37,11 +37,11 @@ public class WebConfigurer implements ServletContextInitializer, WebServerFactor
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if (env.getActiveProfiles().length != 0) {</span>
-<span class="fc" id="L41">            log.info(&quot;Web application configuration, using profiles: {}&quot;, (Object[]) env.getActiveProfiles());</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (env.getActiveProfiles().length != 0) {</span>
+<span class="nc" id="L41">            log.info(&quot;Web application configuration, using profiles: {}&quot;, (Object[]) env.getActiveProfiles());</span>
         }
-<span class="fc" id="L43">        log.info(&quot;Web application fully configured&quot;);</span>
-<span class="fc" id="L44">    }</span>
+<span class="nc" id="L43">        log.info(&quot;Web application fully configured&quot;);</span>
+<span class="nc" id="L44">    }</span>
 
     /**
      * Customize the Servlet engine: Mime types, the document root, the cache.
@@ -67,11 +67,11 @@ public class WebConfigurer implements ServletContextInitializer, WebServerFactor
     public CorsFilter corsFilter() {
 <span class="fc" id="L68">        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();</span>
 <span class="fc" id="L69">        CorsConfiguration config = jHipsterProperties.getCors();</span>
-<span class="fc bfc" id="L70" title="All 4 branches covered.">        if (config.getAllowedOrigins() != null &amp;&amp; !config.getAllowedOrigins().isEmpty()) {</span>
-<span class="fc" id="L71">            log.debug(&quot;Registering CORS filter&quot;);</span>
-<span class="fc" id="L72">            source.registerCorsConfiguration(&quot;/api/**&quot;, config);</span>
-<span class="fc" id="L73">            source.registerCorsConfiguration(&quot;/management/**&quot;, config);</span>
-<span class="fc" id="L74">            source.registerCorsConfiguration(&quot;/v2/api-docs&quot;, config);</span>
+<span class="pc bpc" id="L70" title="3 of 4 branches missed.">        if (config.getAllowedOrigins() != null &amp;&amp; !config.getAllowedOrigins().isEmpty()) {</span>
+<span class="nc" id="L71">            log.debug(&quot;Registering CORS filter&quot;);</span>
+<span class="nc" id="L72">            source.registerCorsConfiguration(&quot;/api/**&quot;, config);</span>
+<span class="nc" id="L73">            source.registerCorsConfiguration(&quot;/management/**&quot;, config);</span>
+<span class="nc" id="L74">            source.registerCorsConfiguration(&quot;/v2/api-docs&quot;, config);</span>
         }
 <span class="fc" id="L76">        return new CorsFilter(source);</span>
     }

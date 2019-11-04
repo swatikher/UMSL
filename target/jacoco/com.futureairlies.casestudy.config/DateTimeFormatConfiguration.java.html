@@ -9,13 +9,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Configure the converters to use the ISO format for dates by default.
  */
 @Configuration
-<span class="nc" id="L12">public class DateTimeFormatConfiguration implements WebMvcConfigurer {</span>
+<span class="fc" id="L12">public class DateTimeFormatConfiguration implements WebMvcConfigurer {</span>
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-<span class="nc" id="L16">        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();</span>
-<span class="nc" id="L17">        registrar.setUseIsoFormat(true);</span>
-<span class="nc" id="L18">        registrar.registerFormatters(registry);</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L16">        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();</span>
+<span class="fc" id="L17">        registrar.setUseIsoFormat(true);</span>
+<span class="fc" id="L18">        registrar.registerFormatters(registry);</span>
+<span class="fc" id="L19">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
